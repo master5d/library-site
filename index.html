@@ -291,7 +291,15 @@ footer .shell { padding: 20px 24px 40px; }
   const WORKS = window.LIBRARY_WORKS || [];
   const LIBRARY_AUTHORS = window.LIBRARY_AUTHORS || [];
   const SHELVES = window.LIBRARY_SHELVES || [];
-  const CATEGORY_OF = window.LIBRARY_GENRE_CATEGORIES || {};
+  // Карта жанр→категория собирается ИЗ ПОЛОК: каждая полка-категории несёт свои
+  // жанры. Раньше здесь читался отдельный глобальный объект, которого сборка
+  // не писала, — и фильтр по каждой из восьми категорий давал ноль при честном
+  // счётчике рядом. Данные, приехавшие вместе с полками, забыть подключить нельзя.
+  const CATEGORY_OF = {};
+  for (const s of (window.LIBRARY_SHELVES || [])) {
+    if (s.kind !== "category") continue;
+    for (const g of s.genres || []) CATEGORY_OF[g] = s.id.replace(/^cat-/, "");
+  }
   const A = Object.fromEntries(LIBRARY_AUTHORS.map(a => [a.id, a]));
   const SHELF_BY_ID = Object.fromEntries(SHELVES.map(s => [s.id, s]));
 
