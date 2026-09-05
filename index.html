@@ -281,7 +281,7 @@ footer .shell { padding: 20px 24px 40px; }
   const LANGS = {"ru": "RU", "en": "EN"};
   // Provenance of a sourced synopsis. The Wikipedia licence wording is required whenever its text is shown.
   const DESC_SOURCES = {"openlibrary": "OpenLibrary", "wikipedia-ru": "Русская Википедия, CC BY-SA", "wikipedia-en": "English Wikipedia, CC BY-SA", "litres": "ЛитРес", "labirint": "Лабиринт", "livelib": "LiveLib"};
-  const KIND_TITLES = {"manual": "Полки", "kind": "По типу", "status": "По статусу", "format": "По формату", "category": "По категории", "genre": "По жанру", "source": "По источнику"};
+  const KIND_TITLES = {"manual": "Полки", "kind": "Тип", "status": "Статус", "format": "Формат", "category": "Категория", "genre": "Жанр", "source": "Источник"};
   const KIND_ORDER = ["manual", "kind", "status", "format", "category", "genre", "source"];
   const SAFE_LINK = /^https?:\/\//i;               // only http(s) hrefs become <a>
   const SAFE_COVER = /^covers\/[A-Za-z0-9._-]+$/;    // relative covers/<id>.jpg only
@@ -409,7 +409,7 @@ footer .shell { padding: 20px 24px 40px; }
     });
     const frag = document.createDocumentFragment();
     const allBtn = el("button", { type: "button", "data-shelf": "", "aria-pressed": String(!state.shelf) },
-      [el("span", { class: "t", text: "Все работы" }), el("span", { class: "n", text: String(WORKS.length) })]);
+      [el("span", { class: "t", text: "Тексты" }), el("span", { class: "n", text: String(WORKS.length) })]);
     frag.appendChild(el("div", { class: "shelf-group" }, [el("ul", { class: "shelf-list" }, [el("li", null, [allBtn])])]));
     for (const kind of kinds) {
       const list = groups.get(kind).slice().sort((a, b) => (a.order || 0) - (b.order || 0) || collator.compare(a.title, b.title));
