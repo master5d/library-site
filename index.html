@@ -409,7 +409,7 @@ footer .shell { padding: 20px 24px 40px; }
     });
     const frag = document.createDocumentFragment();
     const allBtn = el("button", { type: "button", "data-shelf": "", "aria-pressed": String(!state.shelf) },
-      [el("span", { class: "t", text: "Тексты" }), el("span", { class: "n", text: String(WORKS.length) })]);
+      [el("span", { class: "t", text: "Все Тексты" }), el("span", { class: "n", text: String(WORKS.length) })]);
     frag.appendChild(el("div", { class: "shelf-group" }, [el("ul", { class: "shelf-list" }, [el("li", null, [allBtn])])]));
     for (const kind of kinds) {
       const list = groups.get(kind).slice().sort((a, b) => (a.order || 0) - (b.order || 0) || collator.compare(a.title, b.title));
