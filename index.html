@@ -44,6 +44,7 @@
   --scripture-bg: #efe9f7; --scripture-ink: #582b8c;
   --audio-bg: #e2f0f7;     --audio-ink: #1e587a;
   --series-bg: #fbf0dc;    --series-ink: #7a4f15;
+  --magazine-bg: #e6f2ea;  --magazine-ink: #24603a;
   --serif: "Literata", Georgia, "Times New Roman", serif;
   --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --radius: 10px;
@@ -149,6 +150,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .badge.kind-scripture { background: var(--scripture-bg); color: var(--scripture-ink); border-color: transparent; }
 .badge.kind-audio-set { background: var(--audio-bg); color: var(--audio-ink); border-color: transparent; }
 .badge.kind-series { background: var(--series-bg); color: var(--series-ink); border-color: transparent; }
+.badge.kind-magazine { background: var(--magazine-bg); color: var(--magazine-ink); border-color: transparent; }
 .card .fmts { font-size: 14px; letter-spacing: 2px; }
 .card .shelves { display: flex; flex-wrap: wrap; gap: 4px; margin-top: auto; padding-top: 4px; }
 .card .shelves button { border: 0; background: var(--paper); border-radius: 6px; padding: 2px 7px; font-size: 11.5px; color: var(--muted); }
@@ -283,7 +285,7 @@ footer .shell { padding: 20px 24px 40px; }
 <script>
 (function () {
   "use strict";
-  const KINDS = {"book": "Книга", "scripture": "Писание", "audio-set": "Аудио-подборка", "series": "Серия"};
+  const KINDS = {"book": "Книга", "scripture": "Писание", "audio-set": "Аудио-подборка", "series": "Серия", "magazine": "Журнал"};
   const FORMATS = {"paper": "📕 Бумага", "ebook": "📱 E-book", "audio": "🎧 Аудио", "pdf-scan": "🖨 Скан", "web": "🌐 Веб"};
   const STATUSES = {"wishlist": "Хочу", "owned": "Есть", "in-lab": "В лабе", "reading": "Читаю", "read": "Прочитано"};
   const LANGS = {"ru": "RU", "en": "EN"};
